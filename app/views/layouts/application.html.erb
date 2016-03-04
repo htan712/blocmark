@@ -12,6 +12,14 @@
       <ul class="nav nav-tabs">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", welcome_about_path %></li>
+        <div class="pull-right user-info">
+          <% if current_user %>
+            <li> <%= link_to current_user.email, edit_user_registration_path %> </li>
+          <% else %>
+            <li><%= link_to "Log In", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <% end %>
+        </div>
       </ul>
       <div class="flash">
         <p class="notice"><%= notice %></p>
