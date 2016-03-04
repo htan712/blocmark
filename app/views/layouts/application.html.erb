@@ -13,6 +13,10 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", welcome_about_path %></li>
       </ul>
+      <div class="flash">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
       <%= yield %>
     </div>
 
