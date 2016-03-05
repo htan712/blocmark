@@ -1,0 +1,12 @@
+<h1 id="index-header">BlocMark!</h1>
+<p id="index-p">Share your Bookmarks with the world and spread helpful tips and tricks.</p>
+<hr>
+    <% @topics.each do |topic| %>
+      <div class="row" id="topics">
+        <%= link_to topic.title, topic %>
+      </div>
+      <div id="bookmarks">
+        Topic related bookmarks goes here.
+      </div>
+    <% end %>
+  </div>

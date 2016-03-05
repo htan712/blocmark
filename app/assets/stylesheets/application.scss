@@ -1,5 +1,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+// body {
+//   background-image: url(https://pixabay.com/static/uploads/photo/2015/11/18/19/27/folder-1049826_960_720.jpg);
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   background-size: cover;
+//   width: 100%;
+//   height: 100%;
+// }
+
+
 .user-info {
   margin-top: 9px;
 }
@@ -8,12 +18,22 @@
   margin-top: 5px;
 }
 
-#index-title {
+#topics a{
+  color: #51bfe8;
+  font: 10px;
+}
+
+#bookmarks {
+  color: #20dede;
+}
+
+#index-p {
   text-align: center;
-  font-size: 15px;
-  color: blue;
+  font-size: 18px;
+  color: #0ca2f6;
 }
 
 #index-header {
   text-align: center;
+  color: #51bfe8;
 }
