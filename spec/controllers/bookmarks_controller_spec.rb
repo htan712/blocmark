@@ -6,7 +6,6 @@ RSpec.describe BookmarksController, type: :controller do
   let(:my_user) { create(:user) }
   let(:my_bookmark) { create(:bookmark, topic: my_topic, user: my_user)}
 
-
   context "guest user" do
     describe "GET show" do
       it "returns http success" do

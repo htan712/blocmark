@@ -1,12 +1,16 @@
-<h1 id="index-header">BlocMark!</h1>
-<p id="index-p">Share your Bookmarks with the world and spread helpful tips and tricks.</p>
-<hr>
-    <% @topics.each do |topic| %>
-      <div class="row" id="topics">
-        <%= link_to topic.title, topic %>
+<div class="jumbotron">
+  <h1 id="index-header">BlocMark!</h1>
+  <p id="index-p">Share your Bookmarks with the world and spread helpful tips and tricks.</p>
+</div>
+<% @topics.each do |topic| %>
+<div class="container">
+  <div class="row text-center" id="topics">
+    <h3> <em><%= link_to topic.title, topic %> </em></h3>
+      <div class="column text-center" id = "bookmarks">
+        <% topic.bookmarks.each do |bookmark| %>
+           <%= link_to bookmark.title, topic_bookmark_path(topic, bookmark) %>
+        <% end %>
       </div>
-      <div id="bookmarks">
-        Topic related bookmarks goes here.
-      </div>
-    <% end %>
   </div>
+</div>
+<% end %>

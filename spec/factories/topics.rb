@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :topic do
-    title Faker::Hipster.sentence
+    title Faker::StarWars.planet
+    user
   end
 end

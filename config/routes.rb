@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-  devise_for :admins
   root 'topics#index'
 
   get 'welcome/about'
@@ -10,5 +8,5 @@ Rails.application.routes.draw do
   resources :topics do
     resources :bookmarks
   end
-  
+
 end

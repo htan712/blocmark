@@ -1,0 +1,42 @@
+<div class = "panel panel-default">
+  <div class = "panel-body">
+    <div class = "row">
+      <div class = "col-md-6">
+      <%= form_for [topic, bookmark] do |f| %>
+        <% if bookmark.errors.any? %>
+          <div class"alert alert-danger">
+            <h4><%= pluralize(bookmark.errors.count, "error") %>.</h4>
+            <ul>
+              <% bookmark.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <br>
+        <div class = "table-responsive">
+          <table class = "table">
+            <tbody>
+              <tr>
+                <td><strong><%= f.label :title %></strong></td>
+                <td><%= f.text_field :title, class: 'form_control' %></td>
+              </tr>
+              <tr>
+                <td><strong><%= f.label :description %></strong></td>
+                <td><%= f.text_area :description, class: 'form_control' %></td>
+              </tr>
+              <tr>
+                <td><strong><%= f.label :url %></strong></td>
+                <td><%= f.text_field :url, class: 'form_control' %></td>
+              </tr>
+              <tr>
+                <td><%= f.submit "Save", class: 'btn btn-xs btn-info'%></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,20 +1,49 @@
-creator = User.new(
+admin = User.new(
     email:                  ENV["creator_email"],
     password:               ENV["creator_password"],
     password_confirmation:  ENV["creator_password"],
+    admin:                  true
 )
 
-creator.skip_confirmation!
-creator.save!
+admin.skip_confirmation!
+admin.save!
 
-fitness = Topic.create!(title: "Fitness", user: creator)
+member = User.new(
+    email:                  ENV["member_email"],
+    password:               ENV["member_password"],
+    password_confirmation:  ENV["member_password"]
+)
 
-books = Topic.create!(title: "Books To Read", user: creator)
+member.skip_confirmation!
+member.save!
 
-events = Topic.create!(title: "Upcoming exciting events", user: creator)
+anakin = User.new(
+    email:                  Faker::Internet.email,
+    password:               "password",
+    password_confirmation:  "password"
+)
+anakin.skip_confirmation!
+anakin.save!
 
-nightlife = Topic.create!(title: "Nightlife", user: creator)
+users = User.all
+
+fitness = Topic.create!(title: "Fitness", user: admin)
+books = Topic.create!(title: "Books To Read", user: admin)
+events = Topic.create!(title: "Upcoming exciting events", user: admin)
+nightlife = Topic.create!(title: "Nightlife", user: admin)
+starwars = Topic.create!(title: "StarWars", user: admin)
+
+5.times do
+  Bookmark.create!(
+    user: users.sample,
+    topic: starwars,
+    title: Faker::StarWars.character,
+    url: "http://www.starwars.com/",
+    description: Faker::StarWars.quote
+  )
+end
 
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Topic.count} topics created"
+puts "#{Bookmark.count} bookmarks created"
