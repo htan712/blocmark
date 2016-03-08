@@ -2,7 +2,6 @@
 @import "bootstrap";
 body {
   background-image: url(http://i.imgur.com/EzJzNY0.jpg);
-  background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   width: 100%;
@@ -44,7 +43,9 @@ body #bookmarks a{
 #bookmarks a{
   color: #f7690e;
 }
-
+#topics {
+  color: #51bfe8;
+}
 #bookmarks {
   color: #f7690e;
 }

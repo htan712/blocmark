@@ -33,6 +33,8 @@ events = Topic.create!(title: "Upcoming exciting events", user: admin)
 nightlife = Topic.create!(title: "Nightlife", user: admin)
 starwars = Topic.create!(title: "StarWars", user: admin)
 
+topics = Topic.all
+
 5.times do
   Bookmark.create!(
     user: users.sample,
@@ -42,6 +44,17 @@ starwars = Topic.create!(title: "StarWars", user: admin)
     description: Faker::StarWars.quote
   )
 end
+
+10.times do
+  Bookmark.create!(
+    user: users.sample,
+    topic: topics.sample,
+    title: Faker::StarWars.character,
+    url: "http://www.starwars.com/",
+    description: Faker::StarWars.quote
+  )
+end
+
 
 puts "Seed finished"
 puts "#{User.count} users created"

@@ -6,4 +6,5 @@ class Topic < ActiveRecord::Base
   validates :user, presence: true
   validates :title, length: {minimum: 1, maximum: 50}, presence: true
 
+  default_scope { order('title ASC')}
 end
