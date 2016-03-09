@@ -17,14 +17,6 @@ member = User.create!(
 member.skip_confirmation!
 member.save!
 
-anakin = User.create!(
-    email:                  Faker::Internet.email,
-    password:               "password",
-    password_confirmation:  "password"
-)
-anakin.skip_confirmation!
-anakin.save!
-
 users = User.all
 
 fitness = Topic.create!(title: "Fitness", user: admin)
