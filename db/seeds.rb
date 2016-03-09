@@ -47,15 +47,6 @@ topics = Topic.all
   )
 end
 
-10.times do
-  Bookmark.create!(
-    user: users.sample,
-    topic: topics.sample,
-    title: Faker::StarWars.character,
-    url: "http://www.starwars.com/",
-    description: Faker::StarWars.quote
-  )
-end
 
 
 puts "Seed finished"
