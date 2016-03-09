@@ -30,7 +30,9 @@ users = User.all
 fitness = Topic.create!(title: "Fitness", user: admin)
 books = Topic.create!(title: "Books To Read", user: admin)
 events = Topic.create!(title: "Upcoming exciting events", user: admin)
-nightlife = Topic.create!(title: "Nightlife", user: admin)
+ruby = Topic.create!(title: "RubyOnRails", user: admin)
+js = Topic.create!(title: "JavaScript", user: admin)
+htmlcss = Topic.create!(title: "HTML & CSS", user: admin)
 starwars = Topic.create!(title: "StarWars", user: admin)
 
 topics = Topic.all
