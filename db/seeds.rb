@@ -1,4 +1,4 @@
-admin = User.new(
+admin = User.create!(
     email:                  ENV["creator_email"],
     password:               ENV["creator_password"],
     password_confirmation:  ENV["creator_password"],
@@ -8,7 +8,7 @@ admin = User.new(
 admin.skip_confirmation!
 admin.save!
 
-member = User.new(
+member = User.create!(
     email:                  ENV["member_email"],
     password:               ENV["member_password"],
     password_confirmation:  ENV["member_password"]
@@ -17,7 +17,7 @@ member = User.new(
 member.skip_confirmation!
 member.save!
 
-anakin = User.new(
+anakin = User.create!(
     email:                  Faker::Internet.email,
     password:               "password",
     password_confirmation:  "password"
