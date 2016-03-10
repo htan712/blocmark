@@ -1,0 +1,23 @@
+<div class = "panel panel-default">
+  <div class = "panel-body">
+    <div class = "row">
+      <div class = "col-md-6">
+        <%= form_for @topic do |f| %>
+          <div class = "table-responsive">
+            <table class = "table">
+              <tbody>
+                <tr>
+                  <td><strong><%= f.label :title %></strong></td>
+                  <td><%= f.text_field :title, class: 'form_control' %></td>
+                </tr>
+                <tr>
+                  <td><%= f.submit "Save", class: 'btn btn-xs btn-info'%></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

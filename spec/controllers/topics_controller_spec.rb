@@ -2,7 +2,8 @@ require 'rails_helper'
 include ApplicationHelper
 
 RSpec.describe TopicsController, type: :controller do
-  let(:my_topic) { create(:topic) }
+  let(:my_user) { create(:user)}
+  let(:my_topic) { create(:topic, user: my_user) }
 
   context "guest" do
     describe "GET index" do
@@ -71,8 +72,8 @@ RSpec.describe TopicsController, type: :controller do
     end
   end
 
-  context "Signed In user" do
-    login_user
+  context "Signed In admin" do
+    login_admin
 
     it "should have a current_user" do
       expect(subject.current_user).to_not eq(nil)
@@ -121,12 +122,12 @@ RSpec.describe TopicsController, type: :controller do
       end
 
       it "assigns & then redirect Topic.last to @topic" do
-        post :create, topic: {title: Faker::Hipster.sentence }
+        post :create, topic: {title: Faker::Hipster.sentence, user: my_user }
         expect(assigns(:topic)).to eq Topic.last
       end
 
       it "redirects to the new topic" do
-        post :create, topic: {title: Faker::Hipster.sentence}
+        post :create, topic: {title: Faker::Hipster.sentence, user: my_user}
         expect(response).to redirect_to Topic.last
       end
     end
@@ -178,4 +179,6 @@ RSpec.describe TopicsController, type: :controller do
       end
     end
   end
+
+
 end

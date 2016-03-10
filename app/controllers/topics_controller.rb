@@ -17,11 +17,13 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(topic_params)
+    @topic.user = current_user
 
     if @topic.save
       redirect_to @topic, notice: "Topic created."
     else
       flash.now[:alert] = "Error creating topic. Please try again."
+      render :new
     end
   end
 

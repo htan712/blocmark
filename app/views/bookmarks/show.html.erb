@@ -20,11 +20,12 @@
               </tr>
               <tr>
                 <td><strong>url:</strong></td>
-                <td><%= @bookmark.url %></td>
+                <td><%= link_to @bookmark.url, @bookmark.url %></td>
               </tr>
             </tbody>
           </table>
         </div>
+        <%= link_to "Back", :back, class: 'btn btn-xs btn-info' %>
       </div>
     </div>
   </div>
