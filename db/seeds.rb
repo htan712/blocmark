@@ -1,7 +1,7 @@
 admin = User.create!(
-    email:                  ENV["creator_email"],
-    password:               ENV["creator_password"],
-    password_confirmation:  ENV["creator_password"],
+    email:                  ENV["CREATOR_EMAIL"],
+    password:               ENV["CREATOR_PASSWORD"],
+    password_confirmation:  ENV["CREATOR_PASSWORD"],
     admin:                  true
 )
 
@@ -9,9 +9,9 @@ admin.skip_confirmation!
 admin.save!
 
 member = User.create!(
-    email:                  ENV["member_email"],
-    password:               ENV["member_password"],
-    password_confirmation:  ENV["member_password"]
+    email:                  ENV["MEMBER_EMAIL"],
+    password:               ENV["MEMBER_PASSWORD"],
+    password_confirmation:  ENV["MEMBER_PASSWORD"]
 )
 
 member.skip_confirmation!
