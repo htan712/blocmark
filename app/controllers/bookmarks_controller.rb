@@ -3,6 +3,9 @@ class BookmarksController < ApplicationController
   before_action :require_sign_in, except: [:show]
   before_action :find_bookmark, except: [:new, :create]
 
+  def index
+  end
+
   def show
   end
 

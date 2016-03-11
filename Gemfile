@@ -14,6 +14,7 @@ gem 'bcrypt'
 gem 'figaro'
 gem 'sendgrid'
 gem 'devise'
+gem 'pundit'
 
 group :production do
   gem 'pg'

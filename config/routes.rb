@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  get 'bookmark/index'
+  
   resources :topics do
-    resources :bookmarks
+    resources :bookmarks, except: [:index]
   end
 
 end
