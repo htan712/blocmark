@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
+
   root 'topics#index'
 
   get 'welcome/about'
 
   devise_for :users
 
-  get 'bookmark/index'
-  
+  resources :users, only: [:index, :show]
+
   resources :topics do
     resources :bookmarks, except: [:index]
   end

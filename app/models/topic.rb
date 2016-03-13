@@ -4,7 +4,7 @@ class Topic < ActiveRecord::Base
   has_many :bookmarks
 
   validates :user, presence: true
-  validates :title, length: {minimum: 1, maximum: 50}, presence: true
+  validates :title, presence: true
 
   default_scope { order('title ASC')}
 end

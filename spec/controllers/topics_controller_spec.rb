@@ -122,12 +122,12 @@ RSpec.describe TopicsController, type: :controller do
       end
 
       it "assigns & then redirect Topic.last to @topic" do
-        post :create, topic: {title: Faker::Hipster.sentence, user: my_user }
+        post :create, topic: {title: Faker::Hipster.sentence }
         expect(assigns(:topic)).to eq Topic.last
       end
 
       it "redirects to the new topic" do
-        post :create, topic: {title: Faker::Hipster.sentence, user: my_user}
+        post :create, topic: {title: Faker::Hipster.sentence }
         expect(response).to redirect_to Topic.last
       end
     end

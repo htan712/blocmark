@@ -1,9 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 body {
-  background-image: url(http://i.imgur.com/EzJzNY0.jpg);
-  background-position: center;
-  background-size: cover;
+  // background-image: url(http://i.imgur.com/EzJzNY0.jpg);
+  // background-image: url(http://i.imgur.com/WoHaUuT.jpg);
+  // background-position: center;
+  // background-size: cover;
+  background-color: #e2f6ff;
   width: 100%;
   height: 100%;
 }
@@ -15,7 +17,13 @@ body #bookmarks a{
   color: #f7690e;
 }
 .jumbotron {
-  opacity: 0.5;
+  background: #000 url(http://i.imgur.com/8dRB795.jpg) center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  margin-top: 20px;
+  width: auto;
+  height: 220px;
 }
 
 .user-info {
@@ -53,12 +61,15 @@ body #bookmarks a{
 }
 
 #index-p {
-  text-align: center;
-  font-size: 18px;
-  color: #0ca2f6;
+  text-align: left;
+  font-size: 20px;
+  color: #e8e8e8;
+  font-weight: bold;
+  font-style: italic;
 }
 
 #index-header {
-  text-align: center;
-  color: #51bfe8;
+  text-align: left;
+  color: #0d104d;
+  font-size: 90px;
 }

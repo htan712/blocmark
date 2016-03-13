@@ -1,7 +1,7 @@
 class BookmarksController < ApplicationController
 
   before_action :require_sign_in, except: [:show]
-  before_action :find_bookmark, except: [:new, :create]
+  before_action :find_bookmark, except: [:new, :create, :index]
 
   def index
   end

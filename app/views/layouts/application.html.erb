@@ -13,7 +13,7 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", welcome_about_path %></li>
         <% if current_user %>
-          <li> <%= link_to "My Bookmarks", bookmark_index_path %> </li>
+          <li> <%= link_to "My Bookmarks", user_path(current_user) %> </li>
         <% end %>
         <div class="pull-right user-info">
           <% if current_user %>

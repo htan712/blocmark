@@ -1,7 +1,6 @@
 <h1 id="topics-show"><%= @topic.title %></h1>
 <div align="center">
   <% if user_is_authorized_for_topic?(@topic) %>
-    <!-- <div class='col-sm-4' align="center"> -->
       <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-xs btn-info' %>
       <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-xs btn-info', data: {confirm: 'Are you sure you want to delete this topic?'}%>
   <% end %>
@@ -9,7 +8,6 @@
   <% if current_user %>
       <%= link_to "New Bookmark", new_topic_bookmark_path(@topic), class: 'btn btn-xs btn-success'%>
   <% end %>
-    <!-- </div> -->
   <br>
   <br>
   <div id="bookmarks">
