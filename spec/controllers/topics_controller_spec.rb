@@ -44,7 +44,7 @@ RSpec.describe TopicsController, type: :controller do
 
     describe "POST create" do
       it "redirect to new_user_session_path" do
-        post :create, {topic: {title: Faker::Hipster.sentence}}
+        post :create, {topic: {title: Faker::StarWars.character}}
         expect(response).to redirect_to(new_user_session_path)
       end
     end
@@ -58,7 +58,7 @@ RSpec.describe TopicsController, type: :controller do
 
     describe "PUT update" do
       it "redirect to new_user_session_path" do
-        new_title = Faker::Hipster.sentence
+        new_title = Faker::StarWars.character
         put :update, id: my_topic.id, topic: {title: new_title}
         expect(response).to redirect_to(new_user_session_path)
       end
@@ -118,16 +118,16 @@ RSpec.describe TopicsController, type: :controller do
 
     describe "POST create" do
       it "increases the number of topics by 1" do
-        expect{ post :create, topic: {title: Faker::Hipster.sentence} }.to change(Topic,:count).by(1)
+        expect{ post :create, topic: {title: Faker::StarWars.character} }.to change(Topic,:count).by(1)
       end
 
       it "assigns & then redirect Topic.last to @topic" do
-        post :create, topic: {title: Faker::Hipster.sentence }
+        post :create, topic: {title: Faker::StarWars.character }
         expect(assigns(:topic)).to eq Topic.last
       end
 
       it "redirects to the new topic" do
-        post :create, topic: {title: Faker::Hipster.sentence }
+        post :create, topic: {title: Faker::StarWars.character }
         expect(response).to redirect_to Topic.last
       end
     end
@@ -150,7 +150,7 @@ RSpec.describe TopicsController, type: :controller do
 
     describe "PUT update" do
       it "updates topic with expected attributes" do
-        new_title = Faker::Hipster.sentence
+        new_title = Faker::StarWars.character
         put :update, id: my_topic.id, topic: {title: new_title}
 
         updated_topic = assigns(:topic)
@@ -159,7 +159,7 @@ RSpec.describe TopicsController, type: :controller do
       end
 
       it "redirects to the updated topic" do
-        new_title = Faker::Hipster.sentence
+        new_title = Faker::StarWars.character
 
         put :update, id: my_topic.id, topic: {title: new_title}
         expect(response).to redirect_to my_topic

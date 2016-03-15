@@ -3,13 +3,13 @@
     <div class = "row">
       <div class = "col-md-6">
       <h2><em> <%= @bookmark.title %> </em></h2>
-        <% if user_is_authorized_for_bookmark?(@bookmark) %>
+        <!-- <% if user_is_authorized_for_bookmark?(@bookmark) %> -->
         <!-- <div class="col-md-4"> -->
           <%= link_to 'Edit', edit_topic_bookmark_path(@bookmark.topic, @bookmark), class: 'btn btn-xs btn-info' %>
           <%= link_to 'Delete', [@bookmark.topic, @bookmark], method: :delete, class: 'btn btn-xs btn-info', data: {confirm: "Delete this bookmark?" } %>
         <!-- </div> -->
         <br>
-        <% end %>
+        <!-- <% end %> -->
         <br>
         <div class = "table-responsive">
           <table class = "table">
@@ -17,6 +17,10 @@
               <tr>
                 <td><strong>Description:</strong></td>
                 <td><%= @bookmark.description %></td>
+              </tr>
+              <tr>
+                <td><strong>Topic:</storng></td>
+                <td><%= link_to @bookmark.topic.title, topic_path(@bookmark.topic) %></td>
               </tr>
               <tr>
                 <td><strong>url:</strong></td>

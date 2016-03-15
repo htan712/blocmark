@@ -2,6 +2,7 @@ class BookmarksController < ApplicationController
 
   before_action :require_sign_in, except: [:show]
   before_action :find_bookmark, except: [:new, :create, :index]
+  after_action :verify_authorized, only: [:destroy, :new, :create]
 
   def index
   end
@@ -12,12 +13,14 @@ class BookmarksController < ApplicationController
   def new
     @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.new
+    authorize @bookmark
   end
 
   def create
     @topic = Topic.find(params[:topic_id])
     @bookmark = @topic.bookmarks.build(bookmark_params)
     @bookmark.user = current_user
+    authorize @bookmark
 
     if @bookmark.save
       flash[:notice] = "Bookmark was saved."
@@ -35,8 +38,7 @@ class BookmarksController < ApplicationController
     @bookmark.assign_attributes(bookmark_params)
 
     if @bookmark.save
-      flash[:notice] = "Bookmark updated."
-      redirect_to [@bookmark.topic]
+      redirect_to @bookmark.topic, notice: "Bookmark updated."
     else
       flash.now[:alert] = "There was an error. Please try again."
       render :edit
@@ -44,11 +46,12 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
+    authorize@bookmark
     if @bookmark.destroy
-      flash[:notice] = "\"#{@bookmark.url}\" was deleted successfully."
-      redirect_to @bookmark.topic
+      redirect_to @bookmark.topic, notice: "\"#{@bookmark.url}\" was deleted successfully."
+
     else
-      flash.now[:alert] = "There was an error deleting the bookmark."
+      flasth.now[:alert] = "There was an error deleting the bookmark."
       render :show
     end
   end

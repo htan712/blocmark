@@ -29,10 +29,10 @@ starwars = Topic.create!(title: "StarWars", user: admin)
 
 topics = Topic.all
 
-5.times do
+20.times do
   Bookmark.create!(
     user: users.sample,
-    topic: starwars,
+    topic: topics.sample,
     title: Faker::StarWars.character,
     url: "http://www.starwars.com/",
     description: Faker::StarWars.quote
