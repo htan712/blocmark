@@ -15,6 +15,8 @@ gem 'figaro'
 gem 'sendgrid'
 gem 'devise'
 gem 'pundit'
+gem 'griddler'
+gem 'griddler-sendgrid'
 
 group :production do
   gem 'pg'
