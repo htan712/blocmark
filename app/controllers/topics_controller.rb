@@ -3,7 +3,6 @@ class TopicsController < ApplicationController
   before_action :require_sign_in, except: [:index, :show]
   before_action :find_topic, except: [:index, :new, :create]
   before_action :authorize_user, except: [:index, :show]
-  before_action :topic_policy, except: [:index, :show]
   after_action :verify_authorized, except: [:index, :show]
 
   def index
@@ -15,11 +14,13 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
+    authorize @topic
   end
 
   def create
     @topic = Topic.new(topic_params)
     @topic.user = current_user
+    authorize @topic
 
     if @topic.save
       redirect_to @topic, notice: "Topic created."
@@ -30,10 +31,12 @@ class TopicsController < ApplicationController
   end
 
   def edit
+    authorize @topic
   end
 
   def update
     @topic.assign_attributes(topic_params)
+    authorize @topic
 
     if @topic.save
       redirect_to @topic, notice: "Updated Topic."
@@ -44,6 +47,8 @@ class TopicsController < ApplicationController
   end
 
   def destroy
+    authorize @topic
+
     if @topic.destroy
       flash[:notice] ="\"#{@topic.title}\" was deleted successfully."
       redirect_to action: :index

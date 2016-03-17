@@ -4,9 +4,6 @@ class BookmarksController < ApplicationController
   before_action :find_bookmark, except: [:new, :create, :index]
   after_action :verify_authorized, only: [:destroy, :new, :create]
 
-  def index
-  end
-
   def show
   end
 
