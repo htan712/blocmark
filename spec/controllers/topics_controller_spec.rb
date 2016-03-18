@@ -3,6 +3,7 @@ include ApplicationHelper
 
 RSpec.describe TopicsController, type: :controller do
   let(:my_user) { create(:user)}
+  let(:my_admin) { create(:admin)}
   let(:my_topic) { create(:topic, user: my_user) }
 
   context "guest" do
@@ -73,11 +74,10 @@ RSpec.describe TopicsController, type: :controller do
   end
 
   context "Signed In admin" do
-    login_admin
-
-    it "should have a current_user" do
-      expect(subject.current_user).to_not eq(nil)
+    before do
+      sign_in my_admin
     end
+
     describe "GET index" do
       it "returns http success" do
         get :index

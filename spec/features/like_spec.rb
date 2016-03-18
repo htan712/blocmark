@@ -2,11 +2,12 @@ require 'rails_helper'
 include UsersHelper
 
 
-RSpec.feature "liking bookmark" do
+feature "liking bookmark" do
   before :each do
     my_user = create(:user)
     my_topic = create(:topic)
     my_bookmark = create(:bookmark, topic: my_topic, user: my_user)
+    sign_in_with my_user
   end
 
   scenario "allow user to like" do

@@ -60,4 +60,16 @@ RSpec.describe BookmarksController, type: :controller do
       end
     end
   end
+
+  context "Signed-in User" do
+    before do
+      sign_in FactoryGirl.create(:user)
+    end
+
+    describe "POST create" do
+      it "increases the number of bookmarks by 1" do
+        expect {post :create, topic_id: my_topic.id, bookmark: {url: Faker::Internet.url, title: Faker::StarWars.character, description: Faker::StarWars.quote}}.to change(Bookmark,:count).by(1)
+      end
+    end
+  end
 end
