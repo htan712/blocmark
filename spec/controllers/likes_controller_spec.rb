@@ -1,4 +1,5 @@
 require 'rails_helper'
+include UsersHelper
 
 RSpec.describe LikesController, type: :controller do
   let(:my_user) { create(:user) }
@@ -24,7 +25,7 @@ RSpec.describe LikesController, type: :controller do
 
   context 'signed in user' do
     login_user
-    
+
     it "should have a current_user" do
       expect(subject.current_user).to_not eq(nil)
     end

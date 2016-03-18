@@ -15,6 +15,9 @@
         <% if current_user %>
           <li> <%= link_to "My Bookmarks", user_path(current_user) %> </li>
         <% end %>
+        <% if current_user.admin? %>
+          <li> <%= link_to "Users", users_path %> </li>
+        <% end %>
         <div class="pull-right user-info">
           <% if current_user %>
           <%= link_to "#{current_user.email} My-info", edit_user_registration_path %>

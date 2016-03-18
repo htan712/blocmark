@@ -12,6 +12,8 @@
       <% topic.bookmarks.first(4).each do |bookmark| %>
       <div class='col-md-3'>
         <%= link_to bookmark.title, topic_bookmark_path(topic, bookmark) %>
+        <br>
+        <i class="glyphicon glyphicon-star"> </i>&nbsp;(<%= pluralize(bookmark.likes.count, 'like') %>)
       </div>
       <% end %>
     </div>

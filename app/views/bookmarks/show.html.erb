@@ -2,7 +2,7 @@
   <div class = "panel-body">
     <div class = "row">
       <div class = "col-md-6">
-      <h2><em> <%= @bookmark.title %> </em></h2>
+      <h2><em> <%= @bookmark.title %> </em> <i class="glyphicon glyphicon-star"> </i>&nbsp;(<%= pluralize(@bookmark.likes.count, 'like') %>)</h2>
       <div class = "column">
           <%= render partial: 'likes/like', locals: { bookmark: @bookmark } %>
         <!-- <% if user_is_authorized_for_bookmark?(@bookmark) %> -->

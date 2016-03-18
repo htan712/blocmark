@@ -1,5 +1,5 @@
 require 'rails_helper'
-include ApplicationHelper
+include UsersHelper
 
 RSpec.describe BookmarksController, type: :controller do
   let(:my_topic) { create(:topic) }
