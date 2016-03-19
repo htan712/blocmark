@@ -16,6 +16,69 @@ RSpec.describe User, type: :model do
     it "should respond to admin" do
       expect(user).to respond_to(:admin)
     end
+
+    it "responds to role" do
+      expect(user).to respond_to(:role)
+    end
+
+    it "responds to admin?" do
+      expect(user).to respond_to(:admin?)
+    end
+
+    it "responds to member?" do
+      expect(user).to respond_to(:member?)
+    end
+
+    it "responds to moderator?" do
+      expect(user).to respond_to(:moderator?)
+    end
+  end
+
+  describe "roles" do
+    it "is member by default" do
+      expect(user.role).to eql("member")
+    end
+
+    context "member user" do
+      it "returns true for #member?" do
+        expect(user.member?).to be_truthy
+      end
+
+      it "retruns false for #admin? & #moderator?" do
+        expect(user.moderator?).to be_falsey
+        expect(user.admin?).to be_falsey
+      end
+    end
+
+    context "admin user" do
+      before do
+        user.admin!
+      end
+
+      it "returns true for #admin?" do
+        expect(user.admin?).to be_truthy
+      end
+
+      it "retruns false for #admin? & #moderator?" do
+        expect(user.member?).to be_falsey
+        expect(user.moderator?).to be_falsey
+      end
+    end
+
+    context "moderator user" do
+      before do
+        user.moderator!
+      end
+
+      it "returns true for #moderator?" do
+        expect(user.moderator?).to be_truthy
+      end
+
+      it "retruns false for #admin? & #member?" do
+        expect(user.member?).to be_falsey
+        expect(user.admin?).to be_falsey
+      end
+    end
   end
 
   describe "liked(bookmark)" do

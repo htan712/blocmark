@@ -2,7 +2,7 @@ admin = User.create!(
     email:                  ENV["CREATOR_EMAIL"],
     password:               ENV["CREATOR_PASSWORD"],
     password_confirmation:  ENV["CREATOR_PASSWORD"],
-    admin:                  true
+    role:                  2
 )
 
 admin.skip_confirmation!

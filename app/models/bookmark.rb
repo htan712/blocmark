@@ -4,6 +4,8 @@ class Bookmark < ActiveRecord::Base
 
   has_many :likes, dependent: :destroy
 
+  # default_scope {order('like DESC')}
+
   validates :user, presence: true
   validates :title, length: {minimum: 1}, presence: true
   validates :description, length: {minimum: 5, maximum: 200}, presence: true
