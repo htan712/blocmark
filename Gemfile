@@ -17,6 +17,13 @@ gem 'devise'
 gem 'pundit'
 gem 'griddler'
 gem 'griddler-sendgrid'
+gem 'cancan'
+
+gem "font-awesome-rails"
+gem 'bourbon'
+gem 'neat'
+gem 'refills'
+gem "normalize-rails"
 
 group :production do
   gem 'pg'
