@@ -17,8 +17,6 @@ gem 'devise'
 gem 'pundit'
 gem 'griddler'
 gem 'griddler-sendgrid'
-gem 'cancan'
-
 gem "font-awesome-rails"
 gem 'bourbon'
 gem 'neat'

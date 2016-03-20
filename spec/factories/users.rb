@@ -13,5 +13,6 @@ FactoryGirl.define do
     password_confirmation "password"
     confirmed_at Date.today
     admin true
+    role 2
   end
 end

@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    unauthorized! if cannot? :manage, @user
   end
 
   def show
@@ -30,7 +29,6 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    unauthorized! if cannot? :manage, @user
     if @user.destroy
       flash[:notice] = "User has been deleted."
       redirect_to :index

@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
   before_action :require_sign_in, except: [:index, :show]
   before_action :find_topic, except: [:index, :new, :create]
   before_action :authorize_user_admin?, except: [:index, :show]
-  after_action :verify_authorized, except: [:index, :show, :new]
+  after_action :verify_authorized, except: [:index, :show]
 
   def index
     @topics = Topic.all
@@ -14,11 +14,14 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
+    authorize @topic
+
   end
 
   def create
     @topic = Topic.new(topic_params)
     @topic.user = current_user
+    authorize @topic
 
     if @topic.save
       redirect_to @topic, notice: "Topic created."
