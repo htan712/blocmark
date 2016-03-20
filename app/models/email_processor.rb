@@ -5,9 +5,11 @@ class EmailProcessor
 
   def process
     user = User.find_by_email(@email.from[:email])
+    topic = user.topics.create(title: 'Emailed Bookmarks')
     user.bookmarks.create!(
       title: @email.subject,
-      url: @email.body
+      url: @email.body,
+      topic: topic
     )
   end
 end

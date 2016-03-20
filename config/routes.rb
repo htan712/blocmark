@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'welcome/about'
 
+  mount_griddler
+
   devise_for :users
 
   resources :users, only: [:index, :show, :update]
