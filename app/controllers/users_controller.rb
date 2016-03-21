@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :authorize_user_admin?, only: [:destroy, :update]
+  before_action :require_sign_in, except: [:show]
+
 
   def index
     @users = User.all
@@ -31,7 +33,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.destroy
       flash[:notice] = "User has been deleted."
-      redirect_to :index
+      render :index
     else
       flash[:alert] = "You must be an admin to do this."
     end

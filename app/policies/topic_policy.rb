@@ -25,10 +25,4 @@ class TopicPolicy
   def destroy?
     @current_user.admin?
   end
-
-  private
-
-  def admin?
-    @current_user.admin?
-  end
 end
