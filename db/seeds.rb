@@ -17,6 +17,16 @@ member = User.create!(
 member.skip_confirmation!
 member.save!
 
+10.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: 'password',
+    password_confirmation: 'password',
+    role: 0,
+    confirmed_at: Date.today
+  )
+end
+
 users = User.all
 
 fitness = Topic.create!(title: "Fitness", user: admin)

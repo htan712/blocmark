@@ -38,4 +38,6 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'database_cleaner'
   gem 'capybara'
+  gem "better_errors"
+  gem 'binding_of_caller'
 end

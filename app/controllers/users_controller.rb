@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @user_roles = User.roles.keys.map {|role| [role.titleize,role]}
   end
 
   def show
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update_attributes(role: params[:role])
+    @user.update_attributes(role: params[:user][:role])
     authorize @user
 
     if @user.save

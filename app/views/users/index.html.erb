@@ -9,10 +9,10 @@
             </td>
             <td>
               <%= form_for(user) do |f| %>
-                <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
-                <td>
+                <%= f.select(:role, @user_roles) %>
+
                 <%= f.submit 'Change Role', class: 'btn btn-xs btn-info' %>
-                </td>
+            </td>
               <% end %>
             </td>
             <td>
